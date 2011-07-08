@@ -1,0 +1,24 @@
+show.config=true
+show.headers=true
+show.cookies=true
+show.data=true
+
+defaults.headers.'User-Agent' = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)'
+
+host_www='mtprodtest.usa.mt.com'
+page1='/mt/richcookie.jsp'
+page2='/mt/krscookie.jsp'
+
+Test ${page1}
+{
+  Cookie: name=abc; value=zzz; domain=${host_www}; path=/
+  Get: http://${host_www}${page1}
+  ExpectedCookie: abc=con73
+}
+
+Test ${page2}
+{
+  Cookie: name=abc; value=zzz; domain=${host_www}; path=/
+  Get: http://${host_www}${page2}
+  ExpectedCookie: abc=con73
+}

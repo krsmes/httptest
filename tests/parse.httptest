@@ -1,0 +1,12 @@
+Google
+{
+  Get: http://www.google.com/
+}
+
+{
+  reader = org.xml.sax.helpers.XMLReaderFactory.createXMLReader("org.htmlparser.sax.XMLReader")
+  slurper = new org.codehaus.groovy.sandbox.util.XmlSlurper(reader)
+  //html = slurper.parseText(data)
+  
+  html = org.htmlparser.Parser.createParser(data, 'UTF-8')
+}
